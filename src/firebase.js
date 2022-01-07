@@ -1,6 +1,7 @@
-import firebase from 'firebase/app';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
 
-const firebaseConfig = {
+const config = {
     apiKey: "AIzaSyCvCOUEVpPMwIpkH5XOBSMKICGRpy87Mxs",
     authDomain: "think-piece-bed43.firebaseapp.com",
     projectId: "think-piece-bed43",
@@ -11,6 +12,8 @@ const firebaseConfig = {
   };
 
   firebase.initializeApp(config);
+
+  export const firestore = firebase.firestore();
 
   window.firebase = firebase;
 
