@@ -1,6 +1,7 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
+import 'firebase/compat/storage';
 
 const config = {
     apiKey: "AIzaSyCvCOUEVpPMwIpkH5XOBSMKICGRpy87Mxs",
@@ -16,6 +17,7 @@ const config = {
 
   export const firestore = firebase.firestore();
   export const auth = firebase.auth();
+  export const storage = firebase.storage();
 
   export const provider = new firebase.auth.GoogleAuthProvider();
   export const signInWithGoogle = () => auth.signInWithPopup(provider);
@@ -54,9 +56,7 @@ const config = {
         if (!uid) return null;
 
         try {
-            const userDocument = await firestore.collection('users').doc(uid).get();
-
-            return { uid, ...userDocument.data() };
+          return firestore.collection('users').doc(uid);
         } catch (error) {
             console.error('Error fetching user', error.message)
         }
