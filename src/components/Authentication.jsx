@@ -6,7 +6,7 @@ import SignInAndSignUp from './SignInAndSignUp';
 const Authentication = ({ user, loading }) => {
   if (loading) return null;
 
-  return <div>{user ? <CurrentUser {...user._delegate} /> : <SignInAndSignUp />}</div>;
+  return <div>{user ? <CurrentUser {...user} /> : <SignInAndSignUp />}</div>;
 };
 
 export default Authentication;
