@@ -9,12 +9,17 @@ class Application extends Component {
     posts: []
   };
 
-  componentDidMount = async () => {
-    const snapshot = await firestore.collection('posts').get();
+  unsubscribe = null;
 
-    const posts = snapshot.docs.map(collectIdsAndDocs)
-    
-    this.setState({ posts })
+  componentDidMount = async () => {
+    this.unsubscribe = firestore.collection('posts').onSnapshot(snapshot => {
+      const posts = snapshot.docs.map(collectIdsAndDocs);
+      this.setState({ posts });
+    });
+  };
+
+  componentWillUnmount = () => {
+    this.unsubscribe();
   }
 
   handleCreate = async post => {
@@ -32,7 +37,7 @@ class Application extends Component {
     const allPosts = this.state.posts;
 
     await firestore.doc(`posts/${id}`).delete();
-    
+
     const posts = allPosts.filter(post => post.id !== id);
 
     this.setState({ posts });
