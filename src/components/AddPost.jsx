@@ -30,8 +30,7 @@ class AddPost extends Component {
     }
 
     firestore.collection('posts').doc(post.id).set(post)
-    debugger; 
-
+    
     this.setState({ title: '', content: '' });
   };
 

@@ -6,10 +6,14 @@ import './index.scss';
 import Application from './components/Application';
 
 import PostsProvider from './providers/PostsProvider';
+import UserProvider from './providers/UserProvider';
+
 
 render(
     <PostsProvider>
-      <Application />
+        <UserProvider>
+          <Application />
+        </UserProvider>
     </PostsProvider>, 
     document.getElementById('root')
     );
