@@ -13,7 +13,7 @@ class AddPost extends Component {
     event.preventDefault();
 
     const { title, content } = this.state;
-    const { uid, displayName, email, photoURL } = auth.currentUser || {}; 
+    const { uid, displayName, email, photoURL } = auth.currentUser || {};
 
     const post = {
       title,
@@ -30,6 +30,7 @@ class AddPost extends Component {
     }
 
     firestore.collection('posts').doc(post.id).set(post)
+    debugger; 
 
     this.setState({ title: '', content: '' });
   };
