@@ -38,7 +38,7 @@ class SignIn extends Component {
           onChange={this.handleChange}
         />
         <input type="submit" value="Sign In" />
-        <button onClick={() => signInWithGoogle()}>Sign In With Google</button>
+        <button onClick={signInWithGoogle}>Sign In With Google</button>
       </form>
     );
   }
