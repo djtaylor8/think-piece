@@ -40,6 +40,8 @@ class UserProfile extends Component {
               .then(response => response.ref.getDownloadURL())
               .then(photoURL => this.userRef.update({ photoURL }));
         }
+
+        this.setState({ displayName: '' })
     }
     render() {
         const { displayName } = this.state;
