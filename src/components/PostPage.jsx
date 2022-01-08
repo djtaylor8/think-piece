@@ -3,13 +3,14 @@ import Post from './Post';
 import Comments from './Comments';
 
 import { firestore } from '../firebase';
-import { collectIdsAndDocs } from '../utilities';
+import { collectIdsAndDocs, withRouter } from '../utilities';
 
 
 class PostPage extends Component {
     state = { post: null, comments: [] };
 
     render() {
+        console.log(this.props);
         return (
             <div>
                 Post page!
@@ -18,4 +19,4 @@ class PostPage extends Component {
     }
 }
 
-export default PostPage;
+export default withRouter(PostPage);
