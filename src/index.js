@@ -8,12 +8,16 @@ import Application from './components/Application';
 import PostsProvider from './providers/PostsProvider';
 import UserProvider from './providers/UserProvider';
 
+import { BrowserRouter as Router } from 'react-router-dom';
+
 
 render(
-    <PostsProvider>
+    <Router>
+      <PostsProvider>
         <UserProvider>
           <Application />
         </UserProvider>
-    </PostsProvider>, 
+      </PostsProvider>
+    </Router>, 
     document.getElementById('root')
     );
