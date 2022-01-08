@@ -5,6 +5,7 @@ import Posts from './Posts';
 
 import { Routes, Route, Link } from 'react-router-dom';
 import UserProfile from './UserProfile';
+import PostPage from './PostPage';
 
 class Application extends Component {
 
@@ -16,6 +17,7 @@ class Application extends Component {
         <Routes>
           <Route path='/' element={<Posts />} />
           <Route path='/profile' element={<UserProfile />} />
+          <Route path='/posts/:id' element={<PostPage />} />
         </Routes>
       </main>
     );
