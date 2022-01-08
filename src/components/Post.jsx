@@ -3,7 +3,7 @@ import React from 'react';
 
 import moment from 'moment';
 
-const Post = ({ title, content, user, createdAt, stars, comments }) => {
+const Post = ({ title, content, user, createdAt, stars, comments, id, onRemove }) => {
   return (
     <article className="Post">
       <div className="Post--content">
@@ -29,7 +29,7 @@ const Post = ({ title, content, user, createdAt, stars, comments }) => {
         </div>
         <div>
           <button className="star">Star</button>
-          <button className="delete">Delete</button>
+          <button className="delete" onClick={() => onRemove(id)}>Delete</button>
         </div>
       </div>
     </article>
@@ -41,7 +41,6 @@ Post.defaultProps = {
   content:
     'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus est aut dolorem, dolor voluptatem assumenda possimus officia blanditiis iusto porro eaque non ab autem nihil! Alias repudiandae itaque quo provident.',
   user: {
-    id: '123',
     displayName: 'Bill Murray',
     email: 'billmurray@mailinator.com',
     photoURL: 'https://www.fillmurray.com/300/300',
