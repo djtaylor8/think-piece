@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class AddComment extends Component {
-  state = { content: '' };
+  state = { content: "" };
 
-  handleChange = event => {
+  handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
 
     this.props.onCreate(this.state);
 
-    this.setState({ content: '' });
+    this.setState({ content: "" });
   };
 
   render() {

@@ -1,20 +1,19 @@
-
-import React, { Component } from 'react';
-import { signInWithGoogle } from '../firebase';
+import React, { Component } from "react";
+import { signInWithGoogle } from "../firebase";
 
 class SignIn extends Component {
-  state = { email: '', password: '' };
+  state = { email: "", password: "" };
 
-  handleChange = event => {
+  handleChange = (event) => {
     const { name, value } = event.target;
 
     this.setState({ [name]: value });
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
 
-    this.setState({ email: '', password: '' });
+    this.setState({ email: "", password: "" });
   };
 
   render() {

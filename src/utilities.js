@@ -1,25 +1,16 @@
-import {
-  useLocation,
-  useNavigate,
-  useParams
-} from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 export function withRouter(Component) {
   function ComponentWithRouterProp(props) {
     let location = useLocation();
     let navigate = useNavigate();
     let params = useParams();
-    return (
-      <Component
-        {...props}
-        router={{ location, navigate, params }}
-      />
-    );
+    return <Component {...props} router={{ location, navigate, params }} />;
   }
 
   return ComponentWithRouterProp;
 }
 
-export const collectIdsAndDocs = doc => {
+export const collectIdsAndDocs = (doc) => {
   return { id: doc.id, ...doc.data() };
 };

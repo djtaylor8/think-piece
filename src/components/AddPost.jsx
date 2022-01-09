@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import { firestore, auth } from '../firebase';
+import React, { Component } from "react";
+import { firestore, auth } from "../firebase";
 
 class AddPost extends Component {
-  state = { title: '', content: '' };
+  state = { title: "", content: "" };
 
-  handleChange = event => {
+  handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
 
     const { title, content } = this.state;
@@ -27,11 +27,11 @@ class AddPost extends Component {
       favorites: 0,
       comments: 0,
       createdAt: new Date(),
-    }
+    };
 
-    firestore.collection('posts').doc(post.id).set(post)
-    
-    this.setState({ title: '', content: '' });
+    firestore.collection("posts").doc(post.id).set(post);
+
+    this.setState({ title: "", content: "" });
   };
 
   render() {
